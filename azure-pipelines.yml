@@ -1,0 +1,10 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: ShellScript@2
+  inputs:
+    scriptPath: version.sh
