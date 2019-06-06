@@ -1,10 +1,30 @@
-trigger:
-- master
-
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
 - task: ShellScript@2
+  displayName: Parse version from Dockerfile
   inputs:
     scriptPath: version.sh
+
+- task: CmdLine@2
+  displayName: Docker build
+  inputs:
+    script:  docker build -t kotatsuclub/ghost:$(docker_tag) .
+
+- task: Docker@2
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  displayName: Docker push
+  inputs:
+    containerRegistry: dockerhub
+    command: push
+    tags: kotatsuclub/ghost:$(docker_tag)
+
+- task: GitHubRelease@0
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  displayName: Create GitHub release
+  inputs:
+    gitHubConnection: kotatsuclub
+    repositoryName: $(Build.Repository.Name)
+    tag: $(docker_tag)
+    tagSource: manual
