@@ -4,7 +4,7 @@ RUN wget https://github.com/kotatsuclub/Casper-KotatsuClub/archive/2.10.6-kotats
 RUN git clone https://github.com/shawntoffel/ghost-imgur-https.git
 RUN cd ghost-imgur-https && npm install
 
-FROM ghost:2.28.1-alpine
+FROM ghost:2.29.0-alpine
 COPY --from=build Casper-KotatsuClub-2.10.6-kotatsuclub content/themes/Casper-KotatsuClub-2.10.6-kotatsuclub
 COPY --from=build ghost-imgur-https content/adapters/storage/ghost-imgur
 ENV storage__active ghost-imgur
