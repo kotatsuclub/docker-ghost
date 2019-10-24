@@ -1,10 +1,10 @@
 diff --git a/post.hbs b/post.hbs
-index f58e0b4..1e78b64 100644
+index f11d4c0..4587a81 100644
 --- a/post.hbs
 +++ b/post.hbs
-@@ -75,11 +75,21 @@ into the {body} of the default.hbs template --}}
- 
-             </footer>
+@@ -114,11 +114,21 @@ into the {body} of the default.hbs template --}}
+                 {{> subscribe-form}}
+             {{/if}}
  
 -            {{!--
              <section class="post-full-comments">
