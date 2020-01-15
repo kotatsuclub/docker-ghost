@@ -1,5 +1,15 @@
 {
   "extends": [
     "config:base"
+  ],
+  "packageRules": [
+    {
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "updateTypes": ["major"],
+      "automerge": false,
+    }
   ]
 }
