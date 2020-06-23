@@ -29,3 +29,6 @@ steps:
     repositoryName: $(Build.Repository.Name)
     tag: $(docker_tag)
     tagSource: manual
+    title: $(docker_tag)
+    releaseNotesSource: input
+    releaseNotes: `docker pull kotatsuclub/ghost:$(docker_tag)`
