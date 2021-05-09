@@ -1,5 +1,5 @@
 diff --git a/post.hbs b/post.hbs
-index f11d4c0..4587a81 100644
+index be64aa2..16ed2d1 100644
 --- a/post.hbs
 +++ b/post.hbs
 @@ -69,11 +69,21 @@ into the {body} tag of the default.hbs template --}}
@@ -26,3 +26,4 @@ index f11d4c0..4587a81 100644
 -    --}}
  
  </article>
+ 
