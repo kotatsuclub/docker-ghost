@@ -1,9 +1,9 @@
-FROM node:10-alpine as build
+FROM node:12-alpine as build
 RUN apk add git
 RUN git clone https://github.com/shawntoffel/ghost-imgur-https.git
 RUN cd ghost-imgur-https && npm install
 
-FROM amd64/ghost:3.42.5-alpine
+FROM amd64/ghost:4.0.1-alpine
 RUN apk add --no-cache patch
 COPY --from=build ghost-imgur-https content/adapters/storage/ghost-imgur
 COPY theme.patch /tmp/theme.patch
