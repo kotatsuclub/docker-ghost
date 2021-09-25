@@ -1,29 +1,20 @@
-diff --git a/post.hbs b/post.hbs
-index be64aa2..16ed2d1 100644
---- a/post.hbs
-+++ b/post.hbs
-@@ -69,11 +69,21 @@ into the {body} tag of the default.hbs template --}}
-         {{content}}
-     </section>
- 
--    {{!--
-     <section class="article-comments gh-canvas">
--        If you want to embed comments, this is a good place to paste your code!
-+        <div id="disqus_thread"></div>
-+        <script>
-+            var disqus_config = function () {
-+                this.page.url = "{{url absolute="true"}}";
-+                this.page.identifier = "ghost-{{comment_id}}"
-+            };
-+            (function() {
-+            var d = document, s = d.createElement('script');
-+            s.src = 'https://kotatsuclub.disqus.com/embed.js';
-+            s.setAttribute('data-timestamp', +new Date());
-+            (d.head || d.body).appendChild(s);
-+            })();
-+        </script>
-     </section>
--    --}}
- 
- </article>
- 
+76d75
+<         {{!--
+78c77,89
+<             If you want to embed comments, this is a good place to paste your code!
+---
+>             <div id="disqus_thread"></div>
+>             <script>
+>                 var disqus_config = function () {
+>                     this.page.url = "{{url absolute="true"}}";
+>                     this.page.identifier = "ghost-{{comment_id}}"
+>                 };
+>                 (function() {
+>                 var d = document, s = d.createElement('script');
+>                 s.src = 'https://kotatsuclub.disqus.com/embed.js';
+>                 s.setAttribute('data-timestamp', +new Date());
+>                 (d.head || d.body).appendChild(s);
+>                 })();
+>             </script>
+80d90
+<         --}}
