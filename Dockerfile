@@ -3,7 +3,7 @@ RUN apk add git
 RUN git clone https://github.com/shawntoffel/ghost-imgur-https.git
 RUN cd ghost-imgur-https && npm install
 
-FROM amd64/ghost:4.32.2-alpine
+FROM amd64/ghost:4.32.3-alpine
 RUN apk add --no-cache patch
 COPY --from=build ghost-imgur-https content/adapters/storage/ghost-imgur
 COPY theme.patch /tmp/theme.patch
