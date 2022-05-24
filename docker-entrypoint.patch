@@ -1,5 +1,5 @@
 21a22,32
-> # Substitute DISQUS_SHORTNAME teamplte in patch environment variable value.
+> # Substitute DISQUS_SHORTNAME template in patch environment variable value.
 > envsubst '$DISQUS_SHORTNAME' < /tmp/theme.patch.template > /tmp/theme.patch
 > 
 > # Apply patch to post.hbs.
