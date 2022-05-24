@@ -1,0 +1,12 @@
+21a22,32
+> # Substitute DISQUS_SHORTNAME teamplte in patch environment variable value.
+> envsubst '$DISQUS_SHORTNAME' < /tmp/theme.patch.template > /tmp/theme.patch
+> 
+> # Apply patch to post.hbs.
+> patch -s $GHOST_INSTALL/content.orig/themes/casper/post.hbs /tmp/theme.patch
+> 
+> # Cleanup temporary files.
+> rm -f /tmp/theme.patch
+> rm -f /tmp/theme.patch.template
+> rm -f /tmp/entrypoint.sh
+> 
