@@ -10,7 +10,15 @@ steps:
 - task: CmdLine@2
   displayName: Docker build
   inputs:
-    script:  docker build -t kotatsuclub/ghost:$(docker_tag) .
+    script: docker build -t kotatsuclub/ghost:$(docker_tag) .
+
+- script: |
+    curl -LO https://storage.googleapis.com/container-structure-test/v1.11.0/container-structure-test-linux-amd64 && mv container-structure-test-linux-amd64 container-structure-test && chmod +x container-structure-test && sudo mv container-structure-test /usr/local/bin/
+  displayName: "Install container-structure-test"
+
+- script: |
+    container-structure-test test --image kotatsuclub/ghost:$(docker_tag) --config container-structure-tests.yaml
+  displayName: "Test built container image"
 
 - task: Docker@2
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))

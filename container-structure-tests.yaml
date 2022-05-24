@@ -1,0 +1,24 @@
+schemaVersion: 2.0.0
+
+fileContentTests:
+  - name: Entrypoint has been patched
+    path: /usr/local/bin/docker-entrypoint.sh
+    expectedContents: ['.*DISQUS_SHORTNAME.*']
+
+commandTests:
+- name: patch is installed
+  command: patch
+  args: ["-v"]
+
+- name: envsubst is installed
+  command: envsubst
+  args: ["-V"]
+
+- name: entrypoint runs
+  command: docker-entrypoint.sh
+
+- name: post.hbs contains disqus comments
+  setup: [["docker-entrypoint.sh"]]
+  command: cat
+  args: ["$GHOST_INSTALL/content.orig/themes/casper/post.hbs"]
+  expectedOutput: ['.*disqus.*']
