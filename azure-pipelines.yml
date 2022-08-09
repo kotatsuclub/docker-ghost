@@ -20,7 +20,7 @@ steps:
     container-structure-test test --image kotatsuclub/ghost:$(docker_tag) --config container-structure-tests.yaml
   displayName: "Test built container image"
 
-- task: Docker@2
+- task: Docker@2.201.0
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   displayName: Docker push
   inputs:
