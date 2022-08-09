@@ -7,7 +7,7 @@ steps:
   inputs:
     scriptPath: version.sh
 
-- task: CmdLine@2
+- task: CmdLine@2.201.1
   displayName: Docker build
   inputs:
     script: docker build -t kotatsuclub/ghost:$(docker_tag) .
