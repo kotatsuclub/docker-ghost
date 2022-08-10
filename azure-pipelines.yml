@@ -2,7 +2,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: ShellScript@2
+- task: ShellScript@2.206.0
   displayName: Parse version from Dockerfile
   inputs:
     scriptPath: version.sh
