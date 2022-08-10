@@ -29,7 +29,7 @@ steps:
     repository: kotatsuclub/ghost
     tags: $(docker_tag)
 
-- task: GitHubRelease@0.198.0
+- task: GitHubRelease@1.201.0
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   displayName: Create GitHub release
   inputs:
