@@ -1,8 +1,11 @@
-82d81
-<     {{!--
-84c83,95
-<         If you want to embed comments, this is a good place to paste your code!
+89,93c89,103
+<     {{#if comments}}
+<         <section class="article-comments gh-canvas">
+<             {{comments}}
+<         </section>
+<     {{/if}}
 ---
+>     <section class="article-comments gh-canvas">
 >         <div id="disqus_thread"></div>
 >         <script>
 >             var disqus_config = function () {
@@ -16,5 +19,4 @@
 >             (d.head || d.body).appendChild(s);
 >             })();
 >         </script>
-86d96
-<     --}}
+>     </section>
