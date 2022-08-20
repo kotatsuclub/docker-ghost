@@ -4,6 +4,7 @@
   ],
   "automerge": true,
   "automergeType": "branch",
+  "includePaths" : ["Dockerfile"],
   "packageRules": [
     {
       "matchPackageNames": ["amd64/ghost"],
