@@ -1,4 +1,4 @@
-FROM node:22-alpine as build
+FROM node:24-alpine as build
 RUN apk add git
 RUN git clone https://github.com/shawntoffel/ghost-imgur-https.git
 RUN cd ghost-imgur-https && npm install
